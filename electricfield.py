@@ -3,12 +3,13 @@ class ElectricField:
 
 	k0 = 8.99e9
 	pi = 3.14159
-	self.vx = 0
-	self.vy = 0
+	vx = 0
+	vy = 0
 
-	def __init__(self, charge=0, pos=[0,0]):
+	def __init__(self, vx, vy, charge=0, pos=[0,0]):
 		self.charge = charge
-		self.position = pos
+		self.pos = pos
+		self.vx, self.vy = computeComponents(vx,vy, pos)
 
 
 	def getMagnitude(self, distance):
@@ -17,6 +18,10 @@ class ElectricField:
 		else:
 			return inf
 
-	def getComponents(self,x,y):
+	def computeComponents(self,x,y,a):
 		return [q*(x-a[0])/((x-a[0])**2+(y-a[1])**2)**(.5),
 			q*(y-a[1])/((x-a[0])**2+(y-a[1])**2)**(.5)]
+
+	def add(self, E):
+		return ElectricField(self.charge+E.charge, self.vx + E.vx, self.vy + E.vy)
+
