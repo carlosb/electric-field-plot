@@ -1,2 +1,2 @@
-# physicsgraph
-Graph electric fields and other stuff
+# fieldgraph
+Graph electric fields....FOR NOW
