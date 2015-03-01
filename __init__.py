@@ -1,1 +1,1 @@
-__all__ = ['electricfield']
+__all__ = ['electricfield', 'efdomain']

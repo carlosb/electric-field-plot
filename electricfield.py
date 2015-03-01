@@ -1,9 +1,5 @@
 class ElectricField:
 	"Class for the an electric field object"
-		
-	xlabel('$x$')
-	ylabel('$y$')
-	axis('image')
 
 	def __init__(self, vx, vy, charge, pos):
 
