@@ -1,27 +1,36 @@
+from pylab import plot, plt, streamplot, quiver, xlabel, ylabel, axis, show
+
 class ElectricField:
 	"Class for the an electric field object"
-
-	k0 = 8.99e9
-	pi = 3.14159
-	vx = 0
-	vy = 0
+		
+	xlabel('$x$')
+	ylabel('$y$')
+	axis('image')
 
 	def __init__(self, vx, vy, charge=0, pos=[0,0]):
+
+		
+		self.x = vx
+		self.y = vy
 		self.charge = charge
 		self.pos = pos
-		self.vx, self.vy = computeComponents(vx,vy, pos)
+
+		q = self.charge
+		self.vx = q*(vx-pos[0])/((vx-pos[0])**2+(vy-pos[1])**2)**(.5)
+		self.vy = q*(vy-pos[1])/((vx-pos[0])**2+(vy-pos[1])**2)**(.5)
 
 
-	def getMagnitude(self, distance):
-		if(self.distance > 0):
-			return (self.charge/self.distance**2.)*self.k0
-		else:
-			return inf
+	def getMagnitude(self):
+		return ((self.vx)**2 + (self.vy)**2)**(.5)
 
-	def computeComponents(self,x,y,a):
-		return [q*(x-a[0])/((x-a[0])**2+(y-a[1])**2)**(.5),
-			q*(y-a[1])/((x-a[0])**2+(y-a[1])**2)**(.5)]
+	def add(self, E1):
+		self.vx += E1.vx
+		self.vy += E1.vy
 
-	def add(self, E):
-		return ElectricField(self.charge+E.charge, self.vx + E.vx, self.vy + E.vy)
-
+	def plot(self, type='plot'):
+		if(type == 'plot'):
+			plot(self.vx, self.vy)
+			show()
+		elif(type == 'streamplot'):
+			streamplot(self.x,self.y,self.vx,self.vy, density=2,color=self.getMagnitude(), linewidth=2, cmap=plt.cm.hot)
+			show()
