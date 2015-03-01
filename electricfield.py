@@ -20,8 +20,8 @@ class ElectricField:
 		self.vy = q*(vy-pos[1])/((vx-pos[0])**2+(vy-pos[1])**2)**(.5)
 
 
-	def getMagnitude(self):
-		return ((self.vx)**2 + (self.vy)**2)**(.5)
+	def getIntensity(self):
+		return ((self.vx)**2 + (self.vy)**2)**(0.5)
 
 	def add(self, E1):
 		self.vx += E1.vx
@@ -32,5 +32,8 @@ class ElectricField:
 			plot(self.vx, self.vy)
 			show()
 		elif(type == 'streamplot'):
-			streamplot(self.x,self.y,self.vx,self.vy, density=2,color=self.getMagnitude(), linewidth=2, cmap=plt.cm.hot)
+			streamplot(self.x,self.y,self.vx,self.vy, density=2,color=self.getIntensity(), linewidth=2, cmap=plt.cm.hot)
+			show()
+		elif(type == 'quiver'):
+			quiver(self.x, self.y, self.vx, self.vy, pivot='middle', headwidth=4, headlength=6)
 			show()
