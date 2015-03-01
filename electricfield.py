@@ -7,7 +7,7 @@ class ElectricField:
 	ylabel('$y$')
 	axis('image')
 
-	def __init__(self, vx, vy, charge=0, pos=[0,0]):
+	def __init__(self, vx, vy, charge, pos):
 
 		
 		self.x = vx
