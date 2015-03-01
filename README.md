@@ -24,3 +24,6 @@ D.plot('quiver')
 ```
 This will output:
 ![](https://github.com/carlosb/fieldgraph/blob/master/Example/output.png)
+
+# Requirements
+pylab, numpy and matplotlib
