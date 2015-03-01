@@ -1,5 +1,3 @@
-from pylab import plot, plt, streamplot, quiver, xlabel, ylabel, axis, show
-
 class ElectricField:
 	"Class for the an electric field object"
 		
@@ -24,16 +22,7 @@ class ElectricField:
 		return ((self.vx)**2 + (self.vy)**2)**(0.5)
 
 	def add(self, E1):
+		if (E1 == 0):
+			pass
 		self.vx += E1.vx
 		self.vy += E1.vy
-
-	def plot(self, type='plot'):
-		if(type == 'plot'):
-			plot(self.vx, self.vy)
-			show()
-		elif(type == 'streamplot'):
-			streamplot(self.x,self.y,self.vx,self.vy, density=2,color=self.getIntensity(), linewidth=2, cmap=plt.cm.hot)
-			show()
-		elif(type == 'quiver'):
-			quiver(self.x, self.y, self.vx, self.vy, pivot='middle', headwidth=4, headlength=6)
-			show()
