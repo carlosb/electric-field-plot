@@ -1,6 +1,5 @@
-# fieldgraph
-Graph electric fields....FOR NOW
-
+# Description
+Small library of code which aids in the graphing of electric fields
 
 # Usage
 
