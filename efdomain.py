@@ -6,10 +6,6 @@ class Domain:
 
 	fields = []
 
-	# xlabel('$x$')
-	# ylabel('$y$')
-	# axis('image')
-
 	def __init__(self, x=[-1,1], y=[-1,1], x_indexing=16, y_indexing=16):
 		# create linear spaces
 		self.x = linspace(x[0], x[1], x_indexing)
@@ -28,7 +24,6 @@ class Domain:
 		self.total_field = ef.ElectricField(self.x, self.y, 0, [0,0])
 		for E in self.fields:
 			self.total_field.add(E)
-
 
 	def plot(self, type='plot'):
 		close('all')
