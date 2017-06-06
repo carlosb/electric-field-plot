@@ -1,9 +1,13 @@
 # Description
-Small library of code which aids in the graphing of electric fields
+This collection of scripts aids in the plotting of electric fields.
+This is meant to be used as an educational tool.
 
 # Usage
 
-Goes something like this
+This is a basic example. We first create a "domain" where the fields
+will act. Then we add the particles which create "electric fields".
+Finally we have to bake the field to calculate the total field.
+
 ```python
 import efdomain as ed
 
@@ -21,7 +25,8 @@ D.bake()
 # choose between 'plot', 'streamplot' and 'quiver'
 D.plot('quiver')
 ```
-This will output:
+
+# Output
 ![](https://github.com/carlosb/fieldgraph/blob/master/Example/output.png)
 
 # Requirements
