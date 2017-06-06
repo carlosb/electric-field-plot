@@ -30,4 +30,6 @@ D.plot('quiver')
 ![](https://github.com/carlosb/fieldgraph/blob/master/Example/output.png)
 
 # Requirements
-pylab, numpy and matplotlib
+- pylab
+- numpy
+- matplotlib
